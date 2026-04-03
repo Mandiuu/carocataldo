@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jardín Sano, Jardín Feliz — Carolina Cataldo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --w:#FFFFFF;
+  --cr:#F8F4ED;
+  --cr2:#EAE2D4;
+  --vd:#1C3829;
+  --vd2:#2E5C42;
+  --sg:#5F8C6B;
+  --sl:#A8C5A0;
+  --do:#B8965A;
+  --dl:#D4B47E;
+  --tx:#1A2C22;
+  --gr:#7A8880;
+  --gl:#C5CEC8;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--w);color:var(--tx);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 1.5rem;height:56px;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(0,0,0,.07);
+}
+.logo{
+  font-family:'EB Garamond',serif;font-size:1.05rem;font-weight:400;
+  color:var(--vd);text-decoration:none;line-height:1.15;
+}
+.logo small{display:block;font-family:'Outfit',sans-serif;font-size:.52rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--gr)}
+.nav-r{display:flex;align-items:center;gap:1rem}
+.nav-links{display:flex;gap:1.75rem;list-style:none}
+.nav-links a{font-size:.65rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--gr);text-decoration:none;transition:color .18s}
+.nav-links a:hover{color:var(--vd)}
+.nav-cta{background:var(--vd);color:var(--cr)!important;padding:.42rem 1.2rem;border-radius:1px;font-size:.65rem!important;font-weight:400!important;letter-spacing:.1em!important;text-transform:uppercase;text-decoration:none;transition:background .18s}
+.nav-cta:hover{background:var(--vd2)!important}
+/* hamburger */
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.ham span{display:block;width:22px;height:1.5px;background:var(--vd);transition:all .25s}
+.ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.ham.open span:nth-child(2){opacity:0}
+.ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+/* mobile menu */
+.mob-menu{
+  display:none;position:fixed;top:56px;left:0;right:0;bottom:0;z-index:250;
+  background:var(--cr);flex-direction:column;align-items:center;justify-content:center;gap:2rem;
+}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:'EB Garamond',serif;font-size:1.8rem;font-style:italic;color:var(--vd);text-decoration:none;transition:color .18s}
+.mob-menu a:hover{color:var(--sg)}
+.mob-menu .mob-cta{background:var(--vd);color:var(--cr);font-family:'Outfit',sans-serif;font-style:normal;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;padding:.85rem 2.5rem;border-radius:1px;margin-top:.5rem}
+
+/* ── HERO ── */
+.hero{
+  min-height:100svh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  position:relative;overflow:hidden;padding:80px 1.5rem 2rem;
+  background:var(--cr);
+}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:680px;animation:up .8s ease both}
+.kicker{
+  font-size:.62rem;font-weight:400;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--do);margin-bottom:1.1rem;
+  display:flex;align-items:center;justify-content:center;gap:.8rem;
+}
+.kicker::before,.kicker::after{content:'';width:24px;height:1px;background:var(--do);display:block}
+h1{
+  font-family:'EB Garamond',serif;
+  font-size:clamp(3rem,11vw,6rem);
+  font-weight:400;line-height:.95;color:var(--vd);letter-spacing:-.02em;
+}
+h1 em{font-style:italic;color:var(--sg);display:block}
+.hero-by{
+  font-family:'EB Garamond',serif;font-style:italic;
+  font-size:clamp(.95rem,2.5vw,1.25rem);
+  color:var(--do);margin:1rem 0 1.75rem;
+}
+.hero-btns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+.btn{
+  font-size:.65rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;
+  text-decoration:none;padding:.78rem 1.75rem;border-radius:1px;
+  display:inline-block;transition:all .2s;
+}
+.bd{background:var(--vd);color:var(--cr)}
+.bd:hover{background:var(--vd2);transform:translateY(-2px)}
+.bg{border:1px solid var(--gl);color:var(--vd)}
+.bg:hover{border-color:var(--vd);transform:translateY(-2px)}
+/* hero down arrow */
+.hero-arrow{
+  position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:.35rem;
+  opacity:0;animation:fi 1s 1s ease forwards;
+}
+.hero-arrow span{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gl)}
+.hero-arrow svg{width:16px;height:16px;color:var(--gl);animation:bob 2s infinite}
+
+/* ── STRIP ── */
+.strip{
+  background:var(--vd);padding:.9rem 1.5rem;
+  display:flex;align-items:center;justify-content:center;
+  gap:0;flex-wrap:nowrap;overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.strip::-webkit-scrollbar{display:none}
+.si{
+  display:flex;flex-direction:column;align-items:center;
+  padding:.1rem 1.5rem;border-right:1px solid rgba(255,255,255,.08);
+  white-space:nowrap;flex-shrink:0;
+}
+.si:last-child{border-right:none}
+.si b{font-family:'EB Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--dl);display:block;line-height:1.1}
+.si small{font-size:.58rem;font-weight:300;letter-spacing:.1em;text-transform:uppercase;color:rgba(249,245,238,.4);margin-top:.1rem}
+
+/* ── BASE ── */
+section{padding:3.5rem 0}
+.c{max-width:1020px;margin:0 auto;padding:0 1.5rem}
+.ey{font-size:.6rem;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--do);margin-bottom:.9rem}
+h2{font-family:'EB Garamond',serif;font-size:clamp(1.8rem,4.5vw,3rem);font-weight:400;line-height:1.05;color:var(--vd);margin-bottom:1rem}
+h2 em{font-style:italic;color:var(--sg)}
+.lead{font-size:1rem;font-weight:300;line-height:1.8;color:var(--gr)}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+.rv.on{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.15s}.d3{transition-delay:.22s}
+
+/* ── PARA QUIÉN + APRENDERÁS (combinados) ── */
+.pq{background:var(--w)}
+.pq-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.pq-qs{display:flex;flex-direction:column;margin-top:1.5rem}
+.pq-q{
+  padding:.8rem 0;border-bottom:1px solid var(--cr2);
+  font-family:'EB Garamond',serif;font-size:1.15rem;font-style:italic;
+  color:var(--tx);line-height:1.5;
+  display:flex;gap:.75rem;align-items:baseline;transition:color .18s;
+}
+.pq-q:hover{color:var(--vd2)}
+.pq-q::before{content:'—';color:var(--do);font-style:normal;font-size:.8rem;flex-shrink:0}
+.pq-cta{
+  margin-top:1.5rem;font-family:'EB Garamond',serif;font-style:italic;
+  font-size:1.2rem;color:var(--vd);margin-bottom:1.1rem;display:block;
+}
+/* Right side: 3 learn cards */
+.learn-cards{display:flex;flex-direction:column;gap:.6rem;margin-top:1.5rem}
+.lc{
+  background:var(--cr);border-radius:2px;padding:1.1rem 1.25rem;
+  border-left:2px solid var(--sl);transition:border-color .18s;
+}
+.lc:hover{border-left-color:var(--do)}
+.lc h4{font-family:'EB Garamond',serif;font-size:1.15rem;font-weight:400;color:var(--vd);margin-bottom:.2rem}
+.lc p{font-size:.88rem;font-weight:300;line-height:1.65;color:var(--gr)}
+
+/* ── PROGRAMA ── */
+.prog{background:var(--cr)}
+.prog-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:1.75rem}
+.prog-list{display:flex;flex-direction:column;border-top:1px solid var(--cr2)}
+.pi{
+  display:grid;grid-template-columns:44px 1fr;gap:0;
+  border-bottom:1px solid var(--cr2);padding:1.25rem 0;
+  position:relative;
+}
+.pi::after{content:'';position:absolute;left:0;bottom:-1px;right:0;height:1px;background:var(--do);transform:scaleX(0);transform-origin:left;transition:transform .28s}
+.pi:hover::after{transform:scaleX(1)}
+.pn{font-family:'EB Garamond',serif;font-style:italic;font-size:.9rem;color:var(--gl);padding-top:.3rem;transition:color .18s}
+.pi:hover .pn{color:var(--do)}
+.pt{font-family:'EB Garamond',serif;font-size:1.3rem;font-weight:400;color:var(--vd);margin-bottom:.28rem}
+.pd{font-size:.88rem;font-weight:300;line-height:1.7;color:var(--gr)}
+.ptags{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:.5rem}
+.ptag{font-size:.58rem;font-weight:400;letter-spacing:.09em;text-transform:uppercase;color:var(--sg);border:1px solid rgba(95,140,107,.22);padding:.2rem .55rem;border-radius:1px}
+.ptag.p{color:var(--do);border-color:rgba(184,150,90,.22)}
+
+/* ── CAROLINA ── */
+.car{background:var(--w)}
+.car-grid{display:grid;grid-template-columns:280px 1fr;gap:3rem;align-items:start}
+.car-img{
+  background:var(--cr2);aspect-ratio:3/4;border-radius:2px;
+  overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;
+}
+.car-img svg{width:75%;opacity:.18}
+.car-img-foot{position:absolute;bottom:0;left:0;right:0;background:var(--vd);padding:1rem 1.25rem}
+.car-img-foot h3{font-family:'EB Garamond',serif;font-size:1.2rem;color:var(--cr);margin-bottom:.1rem}
+.car-img-foot p{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--do);font-weight:300}
+.car-bio{font-family:'EB Garamond',serif;font-size:1.12rem;line-height:1.85;color:var(--tx);margin:1.1rem 0 1.75rem}
+.tl{display:flex;flex-direction:column}
+.tli{display:flex;gap:1.25rem;padding:.9rem 0;border-bottom:1px solid var(--cr2)}
+.tly{font-family:'EB Garamond',serif;font-style:italic;font-size:.9rem;color:var(--do);min-width:60px;padding-top:.1rem}
+.tlt{font-size:.9rem;font-weight:300;line-height:1.65;color:var(--gr)}
+
+/* ── INSCRIPCIÓN ── */
+.ins{background:var(--vd);padding:3.5rem 0}
+.ins-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:3.5rem;align-items:start}
+.ins .ey{color:rgba(197,164,106,.65)}
+.ins h2{color:var(--cr)}
+.ins h2 em{color:var(--dl)}
+.ins .lead{color:rgba(249,245,238,.5)}
+.info-rows{margin-top:1.5rem;display:flex;flex-direction:column}
+.ir{display:flex;gap:.85rem;padding:.8rem 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.irl{font-size:.6rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:rgba(197,164,106,.45);min-width:76px;padding-top:.15rem}
+.irv{font-size:.92rem;font-weight:300;color:rgba(249,245,238,.7);line-height:1.55}
+.irv strong{font-weight:500;color:rgba(249,245,238,.9)}
+/* form */
+.fc{background:rgba(255,255,255,.05);border:1px solid rgba(197,164,106,.18);border-radius:2px;padding:2rem}
+.ftit{font-family:'EB Garamond',serif;font-size:1.5rem;font-weight:400;font-style:italic;color:var(--dl);margin-bottom:.25rem}
+.fsb{font-size:.75rem;font-weight:300;color:rgba(249,245,238,.4);margin-bottom:1.5rem}
+.fr{margin-bottom:.85rem}
+.fr label{display:block;font-size:.7rem;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:rgba(197,164,106,.55);margin-bottom:.38rem}
+.fr input,.fr select,.fr textarea{
+  width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
+  border-radius:1px;padding:.65rem .9rem;
+  font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:300;
+  color:var(--cr);outline:none;transition:border-color .18s;-webkit-appearance:none;
+}
+.fr input:focus,.fr select:focus,.fr textarea:focus{border-color:rgba(168,197,160,.5)}
+.fr input::placeholder,.fr textarea::placeholder{color:rgba(255,255,255,.2)}
+.fr select option{background:#2E5C42;color:#F8F4ED}
+.fr textarea{resize:vertical;min-height:76px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.fbt{
+  width:100%;background:var(--do);color:var(--vd);border:none;
+  padding:.85rem 1.5rem;font-family:'Outfit',sans-serif;
+  font-size:.65rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+  cursor:pointer;border-radius:1px;margin-top:.35rem;transition:background .18s,transform .18s;
+}
+.fbt:hover{background:var(--dl);transform:translateY(-1px)}
+.fn{font-size:.68rem;font-weight:300;color:rgba(255,255,255,.22);text-align:center;margin-top:.7rem;line-height:1.55}
+.fok{display:none;text-align:center;padding:2rem .5rem}
+.fok h3{font-family:'EB Garamond',serif;font-size:1.75rem;font-style:italic;color:var(--dl);margin-bottom:.5rem}
+.fok p{font-size:.82rem;font-weight:300;color:rgba(249,245,238,.5);line-height:1.7}
+
+/* ── FOOTER ── */
+footer{background:var(--cr);border-top:1px solid var(--cr2);padding:1.75rem 0}
+.fi{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.fl{font-family:'EB Garamond',serif;font-size:.95rem;color:var(--vd)}
+.fl small{display:block;font-family:'Outfit',sans-serif;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gl);margin-top:.1rem}
+.fn2{display:flex;gap:1.5rem;list-style:none}
+.fn2 a{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gl);text-decoration:none;transition:color .18s}
+.fn2 a:hover{color:var(--vd)}
+.fc2{font-size:.68rem;color:var(--gl);font-weight:300}
+
+/* ── KEYFRAMES ── */
+@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes fi{from{opacity:0}to{opacity:.7}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+
+/* ══════════════════════
+   MOBILE FIRST
+══════════════════════ */
+@media(max-width:768px){
+  /* Nav */
+  .nav-links{display:none}
+  .ham{display:flex}
+  /* Hero */
+  .hero{padding:72px 1.25rem 3rem;min-height:100svh;justify-content:center}
+  h1{font-size:clamp(2.8rem,13vw,5rem);line-height:.92}
+  .hero-by{font-size:1rem;margin:.8rem 0 1.5rem}
+  .hero-btns{gap:.6rem}
+  .btn{padding:.72rem 1.4rem;font-size:.62rem}
+  /* Strip: horizontal scroll, compact */
+  .strip{justify-content:flex-start;padding:.75rem 1.25rem;gap:0}
+  .si{padding:.05rem 1.1rem}
+  .si b{font-size:1rem}
+  .si small{font-size:.54rem}
+  /* Sections */
+  section{padding:2.75rem 0}
+  .c{padding:0 1.25rem}
+  h2{font-size:clamp(1.6rem,7vw,2.2rem)}
+  /* PQ: stack */
+  .pq-grid{grid-template-columns:1fr;gap:2rem}
+  .pq-q{font-size:.97rem}
+  /* learn cards: horizontal scroll on mobile */
+  .learn-cards{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:.6rem;padding-bottom:.5rem}
+  .learn-cards::-webkit-scrollbar{display:none}
+  .lc{min-width:220px;flex-shrink:0}
+  /* Prog */
+  .prog-hd{flex-direction:column;align-items:flex-start;gap:1rem;margin-bottom:1.25rem}
+  .pi{grid-template-columns:36px 1fr}
+  .pt{font-size:1.1rem}
+  .pd{font-size:.78rem}
+  /* Carolina */
+  .car-grid{grid-template-columns:1fr;gap:0}
+  .car-img{max-width:260px;margin-bottom:1.75rem}
+  .car-bio{font-size:1.05rem}
+  /* Inscripción */
+  .ins-grid{grid-template-columns:1fr;gap:2rem}
+  .ins{padding:2.75rem 0}
+  .fc{padding:1.5rem 1.25rem}
+  .f2{grid-template-columns:1fr}
+  /* Footer */
+  .fi{flex-direction:column;align-items:flex-start}
+  .fn2{flex-wrap:wrap;gap:1rem}
+}
+
+@media(max-width:400px){
+  h1{font-size:2.8rem}
+  .si{padding:.05rem .9rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="logo">Carolina Cataldo<small>Paisajismo · Jardines</small></a>
+  <div class="nav-r">
+    <ul class="nav-links">
+      <li><a href="#programa">Programa</a></li>
+      <li><a href="#carolina">Profesora</a></li>
+      <li><a href="#inscripcion" class="nav-cta">Inscribirme</a></li>
+    </ul>
+    <button class="ham" id="ham" onclick="toggleMenu()" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MENÚ MOBILE -->
+<div class="mob-menu" id="mobMenu">
+  <a href="#programa" onclick="closeMenu()">Programa</a>
+  <a href="#carolina" onclick="closeMenu()">La profesora</a>
+  <a href="#inscripcion" class="mob-cta" onclick="closeMenu()">Inscribirme</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <svg class="hero-bg" viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <rect width="1440" height="900" fill="#F8F4ED"/>
+    <g fill="none" stroke="#A8C5A0" stroke-width=".9" opacity=".5">
+      <!-- Left branch -->
+      <path d="M30 900 C55 720 90 560 120 400"/>
+      <path d="M120 400 C82 374 44 370 16 382"/>
+      <path d="M120 400 C115 355 103 332 85 322"/>
+      <path d="M120 400 C146 362 158 337 148 319"/>
+      <path d="M85 510 C47 484 12 481 -8 493"/>
+      <path d="M85 510 C79 462 67 440 50 430"/>
+      <path d="M85 510 C110 470 122 447 115 428"/>
+      <path d="M50 620 C18 600 -10 597 -20 608"/>
+      <path d="M50 620 C44 578 34 558 18 548"/>
+      <path d="M50 620 C72 578 82 557 75 540"/>
+      <ellipse cx="155" cy="340" rx="95" ry="38" transform="rotate(-42 155 340)" opacity=".35"/>
+      <!-- Right branch -->
+      <path d="M1410 900 C1385 720 1350 560 1320 400"/>
+      <path d="M1320 400 C1358 374 1396 370 1424 382"/>
+      <path d="M1320 400 C1325 355 1337 332 1355 322"/>
+      <path d="M1320 400 C1294 362 1282 337 1292 319"/>
+      <path d="M1355 510 C1393 484 1428 481 1448 493"/>
+      <path d="M1355 510 C1361 462 1373 440 1390 430"/>
+      <path d="M1355 510 C1330 470 1318 447 1325 428"/>
+      <path d="M1390 620 C1422 600 1450 597 1460 608"/>
+      <path d="M1390 620 C1396 578 1406 558 1422 548"/>
+      <path d="M1390 620 C1368 578 1358 557 1365 540"/>
+      <ellipse cx="1285" cy="340" rx="95" ry="38" transform="rotate(42 1285 340)" opacity=".35"/>
+      <!-- Top center -->
+      <path d="M695 0 C702 50 710 85 714 125" stroke-width=".6" opacity=".4"/>
+      <path d="M714 125 C728 108 746 103 760 111" stroke-width=".6" opacity=".4"/>
+      <path d="M714 125 C704 104 701 90 707 78" stroke-width=".6" opacity=".4"/>
+      <path d="M745 0 C738 50 730 85 726 125" stroke-width=".6" opacity=".4"/>
+    </g>
+    <circle cx="153" cy="328" r="2.2" fill="#B8965A" opacity=".28"/>
+    <circle cx="1287" cy="328" r="2.2" fill="#B8965A" opacity=".28"/>
+    <circle cx="712" cy="76" r="1.8" fill="#B8965A" opacity=".28"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="kicker">Curso de mantención de jardines · 2026</div>
+    <h1>Jardín Sano,<em>Jardín Feliz</em></h1>
+    <p class="hero-by">Con Carolina Cataldo Labbé · Paisajista</p>
+    <div class="hero-btns">
+      <a href="#inscripcion" class="btn bd">Quiero inscribirme</a>
+      <a href="#programa" class="btn bg">Ver el programa</a>
+    </div>
+  </div>
+  <div class="hero-arrow">
+    <span>Seguir</span>
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3v10M4 9l4 4 4-4"/></svg>
+  </div>
+</div>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="si"><b>14 Abr</b><small>Inicio</small></div>
+  <div class="si"><b>6 sesiones</b><small>5 online · 1 presencial</small></div>
+  <div class="si"><b>Semipres.</b><small>Lo Barnechea</small></div>
+  <div class="si"><b>$180.000</b><small>Transferencia</small></div>
+</div>
+
+<!-- PARA QUIÉN + QUÉ APRENDERÁS (combinados) -->
+<section class="pq">
+  <div class="c">
+    <div class="pq-grid">
+      <!-- Izquierda: preguntas -->
+      <div>
+        <div class="ey rv">¿Te identificas?</div>
+        <h2 class="rv d1">Reconoce<em> tu jardín</em></h2>
+        <div class="pq-qs">
+          <div class="pq-q rv">¿Tu jardinero pasa, corta el pasto y se va corriendo?</div>
+          <div class="pq-q rv">¿Ves una planta enferma y no sabes cómo ayudarla?</div>
+          <div class="pq-q rv">¿Estás pagando cuentas enormes de agua por sobre riego?</div>
+          <div class="pq-q rv">¿Te gustaría podar pero tienes miedo de matar tus plantas?</div>
+        </div>
+        <span class="pq-cta rv">Entonces este curso es para ti.</span>
+        <div class="rv"><a href="#inscripcion" class="btn bd">Inscribirme</a></div>
+      </div>
+      <!-- Derecha: lo que aprenderás -->
+      <div>
+        <div class="ey rv">Lo que aprenderás</div>
+        <h2 class="rv d1">El <em>contenido</em></h2>
+        <div class="learn-cards">
+          <div class="lc rv">
+            <h4>Mantención sustentable</h4>
+            <p>Suelo, riego eficiente y control de plagas con enfoque orgánico.</p>
+          </div>
+          <div class="lc rv d1">
+            <h4>Cuidados por estaciones</h4>
+            <p>Qué hacer en cada época del año. Manejo del césped anual.</p>
+          </div>
+          <div class="lc rv d2">
+            <h4>Plagas y enfermedades</h4>
+            <p>Reconocer, prevenir y tratar. Siempre con criterio ambiental.</p>
+          </div>
+          <div class="lc rv">
+            <h4>Nutrición de plantas</h4>
+            <p>Síntomas de deficiencia y cómo solucionarlos correctamente.</p>
+          </div>
+          <div class="lc rv d1">
+            <h4>Elección de especies y poda</h4>
+            <p>Plantas adecuadas para tu espacio. Cuándo y cómo podar.</p>
+          </div>
+          <div class="lc rv d2" style="border-left-color:var(--do)">
+            <h4>★ Clase práctica en terreno</h4>
+            <p>Riego real, programador y poda en jardín. Lo Barnechea.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMA -->
+<section class="prog" id="programa">
+  <div class="c">
+    <div class="prog-hd">
+      <div>
+        <div class="ey rv">Sesión por sesión</div>
+        <h2 class="rv d1" style="margin-bottom:0">El <em>programa</em></h2>
+      </div>
+      <a href="#inscripcion" class="btn bd rv">Inscribirme</a>
+    </div>
+    <div class="prog-list">
+      <div class="pi rv">
+        <div class="pn">01</div>
+        <div>
+          <div class="pt">Mantención sustentable del jardín</div>
+          <div class="pd">Manejo del suelo, uso eficiente del agua y control de plagas.</div>
+          <div class="ptags"><span class="ptag">Suelo</span><span class="ptag">Agua</span><span class="ptag">Plagas</span></div>
+        </div>
+      </div>
+      <div class="pi rv">
+        <div class="pn">02</div>
+        <div>
+          <div class="pt">Labores por estaciones</div>
+          <div class="pd">Primavera, verano, otoño e invierno. Manejo del césped anual.</div>
+          <div class="ptags"><span class="ptag">Estaciones</span><span class="ptag">Césped</span></div>
+        </div>
+      </div>
+      <div class="pi rv">
+        <div class="pn">03</div>
+        <div>
+          <div class="pt">Plagas y enfermedades</div>
+          <div class="pd">Reconocer, prevenir y tratar con tratamientos orgánicos y respetuosos del medioambiente.</div>
+          <div class="ptags"><span class="ptag">Diagnóstico</span><span class="ptag">Orgánico</span></div>
+        </div>
+      </div>
+      <div class="pi rv">
+        <div class="pn">04</div>
+        <div>
+          <div class="pt">Nutrición y fertilización</div>
+          <div class="pd">Deficiencias de nutrientes y cómo solucionarlas para plantas más sanas.</div>
+          <div class="ptags"><span class="ptag">Nutrientes</span><span class="ptag">Fertilización</span></div>
+        </div>
+      </div>
+      <div class="pi rv">
+        <div class="pn">05</div>
+        <div>
+          <div class="pt">Elección de especies y poda</div>
+          <div class="pd">Plantas adecuadas para tu jardín. Cuándo, cómo y cuánto podar.</div>
+          <div class="ptags"><span class="ptag">Especies</span><span class="ptag">Poda</span></div>
+        </div>
+      </div>
+      <div class="pi rv">
+        <div class="pn">★</div>
+        <div>
+          <div class="pt">Clase práctica en terreno — Lo Barnechea</div>
+          <div class="pd">Riego, programador y poda en jardín real. Viernes 15 o sábado 16 de mayo.</div>
+          <div class="ptags"><span class="ptag p">Presencial · 3 hrs</span><span class="ptag p">Lo Barnechea</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAROLINA -->
+<section class="car" id="carolina">
+  <div class="c">
+    <div class="car-grid">
+      <div class="rv">
+        <div class="car-img">
+          <svg viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <g stroke="#5F8C6B" stroke-width="1.1">
+              <path d="M150 380 C150 260 150 200 150 140"/>
+              <path d="M150 140 C150 140 92 110 58 60 C93 74 138 108 150 140"/>
+              <path d="M150 140 C150 140 208 104 242 54 C207 71 155 105 150 140"/>
+              <path d="M150 200 C150 200 88 165 50 112 C90 128 138 162 150 200"/>
+              <path d="M150 200 C150 200 212 158 250 105 C210 124 155 160 150 200"/>
+              <path d="M150 260 C108 234 78 204 78 204"/>
+              <path d="M150 260 C192 231 222 201 222 201"/>
+              <path d="M150 320 C118 302 96 280 96 280"/>
+              <path d="M150 320 C182 299 204 277 204 277"/>
+            </g>
+            <g fill="#B8965A" opacity=".5"><circle cx="150" cy="30" r="4"/><circle cx="130" cy="55" r="2.5"/><circle cx="170" cy="48" r="2.5"/></g>
+          </svg>
+          <div class="car-img-foot">
+            <h3>Carolina Cataldo Labbé</h3>
+            <p>Paisajista & Profesora</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="ey rv">Sobre la profesora</div>
+        <h2 class="rv d1">Una abogada que<em> encontró su jardín</em></h2>
+        <p class="car-bio rv">Me formé como abogada en la Pontificia Universidad Católica de Chile y estudié paisajismo y jardinería entre 2015 y 2017 en el Club de Jardines de Chile, integrando además su directorio entre 2018 y 2020. Entre 2024 y 2025 impartí clases de diseño y mantención de jardines para principiantes en el mismo Club.</p>
+        <div class="tl">
+          <div class="tli rv"><div class="tly">2015–17</div><div class="tlt">Estudios de paisajismo en el <strong>Club de Jardines de Chile.</strong></div></div>
+          <div class="tli rv d1"><div class="tly">2018–20</div><div class="tlt">Directorio del Club de Jardines de Chile.</div></div>
+          <div class="tli rv d2"><div class="tly">2024–25</div><div class="tlt">Clases de diseño y mantención para principiantes.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSCRIPCIÓN -->
+<section class="ins" id="inscripcion">
+  <div class="c">
+    <div class="ins-grid">
+      <div>
+        <div class="ey rv">¿Lista/o para empezar?</div>
+        <h2 class="rv d1">Reserva tu<em> lugar</em></h2>
+        <p class="lead rv">Cupos limitados. El curso comienza el martes 14 de abril de 2026.</p>
+        <div class="info-rows">
+          <div class="ir rv"><div class="irl">Inicio</div><div class="irv"><strong>Martes 14 de abril, 2026</strong></div></div>
+          <div class="ir rv"><div class="irl">Online</div><div class="irv">Martes <strong>18:00–20:30 hrs</strong></div></div>
+          <div class="ir rv"><div class="irl">Presencial</div><div class="irv">15 o 16 de mayo · <strong>Lo Barnechea</strong></div></div>
+          <div class="ir rv"><div class="irl">Valor</div><div class="irv"><strong>$180.000</strong> · Transferencia</div></div>
+        </div>
+      </div>
+      <div class="rv">
+        <div class="fc">
+          <div class="ftit">Me quiero inscribir</div>
+          <div class="fsb">Te contactaremos en 24 hrs con los detalles de pago.</div>
+          <div id="fw">
+            <div class="fr"><label>Nombre completo</label><input type="text" id="fn" placeholder="Tu nombre y apellido"/></div>
+            <div class="fr"><label>Teléfono / WhatsApp</label><input type="tel" id="ft" placeholder="+56 9 XXXX XXXX"/></div>
+            <div class="fr">
+              <label>¿Tienes jardín actualmente?</label>
+              <select id="fj">
+                <option value="">Selecciona…</option>
+                <option>Sí, tengo jardín propio</option>
+                <option>Jardín compartido / condominio</option>
+                <option>Terraza o balcón con plantas</option>
+                <option>Aún no, pero voy a tener</option>
+              </select>
+            </div>
+            <div class="fr"><label>¿Algo más? (opcional)</label><textarea id="fm" placeholder="Cuéntanos sobre tu jardín o qué esperas del curso…"></textarea></div>
+            <button class="fbt" onclick="send()">Reservar mi lugar →</button>
+            <p class="fn">Carolina se pondrá en contacto para coordinar el pago y confirmar tu lugar.</p>
+          </div>
+          <div class="fok" id="fok">
+            <div style="font-size:1.5rem;color:var(--dl);margin-bottom:.6rem">✦</div>
+            <h3>¡Gracias!</h3>
+            <p>Tu solicitud fue recibida. Carolina te contactará pronto para confirmar tu inscripción.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="c">
+    <div class="fi">
+      <div class="fl">Carolina Cataldo<small>Paisajismo · Santiago, Chile</small></div>
+      <ul class="fn2">
+        <li><a href="#programa">Programa</a></li>
+        <li><a href="#carolina">Profesora</a></li>
+        <li><a href="#inscripcion">Inscripción</a></li>
+      </ul>
+      <p class="fc2">© 2026 Carolina Cataldo Labbé</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Reveal on scroll
+const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target)} }), {threshold:.08});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+// Nav shadow
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').style.boxShadow = window.scrollY > 20 ? '0 1px 20px rgba(0,0,0,.06)' : 'none';
+}, {passive:true});
+
+// Hamburger
+function toggleMenu(){
+  document.getElementById('ham').classList.toggle('open');
+  document.getElementById('mobMenu').classList.toggle('open');
+  document.body.style.overflow = document.getElementById('mobMenu').classList.contains('open') ? 'hidden' : '';
+}
+function closeMenu(){
+  document.getElementById('ham').classList.remove('open');
+  document.getElementById('mobMenu').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Form
+function send(){
+  const n=document.getElementById('fn').value.trim();
+  const t=document.getElementById('ft').value.trim();
+  if(!n){alert('Por favor ingresa tu nombre.');return}
+  if(!t){alert('Por favor ingresa tu teléfono.');return}
+  document.getElementById('fw').style.display='none';
+  document.getElementById('fok').style.display='block';
+}
+</script>
+</body>
+</html>
