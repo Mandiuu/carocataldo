@@ -109,21 +109,18 @@ h1 em{font-style:italic;color:var(--sg);display:block}
 
 /* ── STRIP ── */
 .strip{
-  background:var(--vd);padding:.9rem 1.5rem;
-  display:flex;align-items:center;justify-content:center;
-  gap:0;flex-wrap:nowrap;overflow-x:auto;
-  -webkit-overflow-scrolling:touch;
-  scrollbar-width:none;
+  background:var(--vd);
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-bottom:1px solid rgba(255,255,255,.04);
 }
-.strip::-webkit-scrollbar{display:none}
 .si{
-  display:flex;flex-direction:column;align-items:center;
-  padding:.1rem 1.5rem;border-right:1px solid rgba(255,255,255,.08);
-  white-space:nowrap;flex-shrink:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:.9rem .5rem;border-right:1px solid rgba(255,255,255,.08);
+  text-align:center;
 }
 .si:last-child{border-right:none}
 .si b{font-family:'EB Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--dl);display:block;line-height:1.1}
-.si small{font-size:.58rem;font-weight:300;letter-spacing:.1em;text-transform:uppercase;color:rgba(249,245,238,.4);margin-top:.1rem}
+.si small{font-size:.6rem;font-weight:300;letter-spacing:.08em;text-transform:uppercase;color:rgba(249,245,238,.4);margin-top:.15rem;display:block}
 
 /* ── BASE ── */
 section{padding:3.5rem 0}
@@ -267,11 +264,14 @@ footer{background:var(--cr);border-top:1px solid var(--cr2);padding:1.75rem 0}
   .hero-by{font-size:1rem;margin:.8rem 0 1.5rem}
   .hero-btns{gap:.6rem}
   .btn{padding:.72rem 1.4rem;font-size:.62rem}
-  /* Strip: horizontal scroll, compact */
-  .strip{justify-content:flex-start;padding:.75rem 1.25rem;gap:0}
-  .si{padding:.05rem 1.1rem}
-  .si b{font-size:1rem}
-  .si small{font-size:.54rem}
+  /* Strip: 2x2 grid on mobile */
+  .strip{grid-template-columns:repeat(2,1fr)}
+  .si{padding:.8rem .75rem;border-bottom:1px solid rgba(255,255,255,.08)}
+  .si:nth-child(2){border-right:none}
+  .si:nth-child(3){border-bottom:none}
+  .si:nth-child(4){border-right:none;border-bottom:none}
+  .si b{font-size:1.05rem}
+  .si small{font-size:.6rem}
   /* Sections */
   section{padding:2.75rem 0}
   .c{padding:0 1.25rem}
@@ -304,7 +304,7 @@ footer{background:var(--cr);border-top:1px solid var(--cr2);padding:1.75rem 0}
 
 @media(max-width:400px){
   h1{font-size:2.8rem}
-  .si{padding:.05rem .9rem}
+
 }
 </style>
 </head>
