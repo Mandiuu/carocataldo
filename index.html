@@ -24,7 +24,7 @@
   --gl:#C5CEC8;
 }
 html{scroll-behavior:smooth}
-body{font-family:'Outfit',sans-serif;background:var(--w);color:var(--tx);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{font-family:'Outfit',sans-serif;background:var(--w);color:var(--tx);overflow-x:hidden;-webkit-font-smoothing:antialiased;font-size:17px}
 
 /* ── NAV ── */
 nav{
@@ -72,7 +72,7 @@ nav{
 .hero-bg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .hero-content{position:relative;z-index:2;text-align:center;max-width:680px;animation:up .8s ease both}
 .kicker{
-  font-size:.62rem;font-weight:400;letter-spacing:.22em;text-transform:uppercase;
+  font-size:.68rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;
   color:var(--do);margin-bottom:1.1rem;
   display:flex;align-items:center;justify-content:center;gap:.8rem;
 }
@@ -138,8 +138,8 @@ h2 em{font-style:italic;color:var(--sg)}
 .pq-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
 .pq-qs{display:flex;flex-direction:column;margin-top:1.5rem}
 .pq-q{
-  padding:.8rem 0;border-bottom:1px solid var(--cr2);
-  font-family:'EB Garamond',serif;font-size:1.15rem;font-style:italic;
+  padding:.9rem 0;border-bottom:1px solid var(--cr2);
+  font-family:'EB Garamond',serif;font-size:1.25rem;font-style:italic;
   color:var(--tx);line-height:1.5;
   display:flex;gap:.75rem;align-items:baseline;transition:color .18s;
 }
@@ -177,10 +177,10 @@ h2 em{font-style:italic;color:var(--sg)}
 .pi:hover::after{transform:scaleX(1)}
 .pn{font-family:'EB Garamond',serif;font-style:italic;font-size:.9rem;color:var(--gl);padding-top:.3rem;transition:color .18s}
 .pi:hover .pn{color:var(--do)}
-.pt{font-family:'EB Garamond',serif;font-size:1.3rem;font-weight:400;color:var(--vd);margin-bottom:.28rem}
-.pd{font-size:.88rem;font-weight:300;line-height:1.7;color:var(--gr)}
+.pt{font-family:'EB Garamond',serif;font-size:1.45rem;font-weight:400;color:var(--vd);margin-bottom:.3rem}
+.pd{font-size:.95rem;font-weight:300;line-height:1.75;color:var(--gr)}
 .ptags{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:.5rem}
-.ptag{font-size:.58rem;font-weight:400;letter-spacing:.09em;text-transform:uppercase;color:var(--sg);border:1px solid rgba(95,140,107,.22);padding:.2rem .55rem;border-radius:1px}
+.ptag{font-size:.65rem;font-weight:400;letter-spacing:.09em;text-transform:uppercase;color:var(--sg);border:1px solid rgba(95,140,107,.22);padding:.25rem .65rem;border-radius:1px}
 .ptag.p{color:var(--do);border-color:rgba(184,150,90,.22)}
 
 /* ── CAROLINA ── */
@@ -194,11 +194,11 @@ h2 em{font-style:italic;color:var(--sg)}
 .car-img-foot{position:absolute;bottom:0;left:0;right:0;background:var(--vd);padding:1rem 1.25rem}
 .car-img-foot h3{font-family:'EB Garamond',serif;font-size:1.2rem;color:var(--cr);margin-bottom:.1rem}
 .car-img-foot p{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--do);font-weight:300}
-.car-bio{font-family:'EB Garamond',serif;font-size:1.12rem;line-height:1.85;color:var(--tx);margin:1.1rem 0 1.75rem}
+.car-bio{font-family:'EB Garamond',serif;font-size:1.2rem;line-height:1.9;color:var(--tx);margin:1.1rem 0 1.75rem}
 .tl{display:flex;flex-direction:column}
 .tli{display:flex;gap:1.25rem;padding:.9rem 0;border-bottom:1px solid var(--cr2)}
 .tly{font-family:'EB Garamond',serif;font-style:italic;font-size:.9rem;color:var(--do);min-width:60px;padding-top:.1rem}
-.tlt{font-size:.9rem;font-weight:300;line-height:1.65;color:var(--gr)}
+.tlt{font-size:.97rem;font-weight:300;line-height:1.7;color:var(--gr)}
 
 /* ── INSCRIPCIÓN ── */
 .ins{background:var(--vd);padding:3.5rem 0}
@@ -210,7 +210,7 @@ h2 em{font-style:italic;color:var(--sg)}
 .info-rows{margin-top:1.5rem;display:flex;flex-direction:column}
 .ir{display:flex;gap:.85rem;padding:.8rem 0;border-bottom:1px solid rgba(255,255,255,.06)}
 .irl{font-size:.6rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:rgba(197,164,106,.45);min-width:76px;padding-top:.15rem}
-.irv{font-size:.92rem;font-weight:300;color:rgba(249,245,238,.7);line-height:1.55}
+.irv{font-size:1rem;font-weight:300;color:rgba(249,245,238,.7);line-height:1.6}
 .irv strong{font-weight:500;color:rgba(249,245,238,.9)}
 /* form */
 .fc{background:rgba(255,255,255,.05);border:1px solid rgba(197,164,106,.18);border-radius:2px;padding:2rem}
@@ -283,7 +283,7 @@ footer{background:var(--cr);border-top:1px solid var(--cr2);padding:1.75rem 0}
   h2{font-size:clamp(1.6rem,7vw,2.2rem)}
   /* PQ: stack */
   .pq-grid{grid-template-columns:1fr;gap:2rem}
-  .pq-q{font-size:.97rem}
+  .pq-q{font-size:1.1rem}
   /* learn cards: horizontal scroll on mobile */
   .learn-cards{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:.6rem;padding-bottom:.5rem}
   .learn-cards::-webkit-scrollbar{display:none}
@@ -292,8 +292,8 @@ footer{background:var(--cr);border-top:1px solid var(--cr2);padding:1.75rem 0}
   .prog-hd{flex-direction:column;align-items:flex-start;gap:1rem;margin-bottom:1.25rem}
   .pi{grid-template-columns:1fr;padding:1.1rem 0;gap:.15rem}
   .pn{font-size:.7rem;font-style:normal;font-family:'Outfit',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--do);padding:0;margin-bottom:.2rem}
-  .pt{font-size:1.1rem}
-  .pd{font-size:.85rem;line-height:1.65}
+  .pt{font-size:1.2rem}
+  .pd{font-size:.93rem;line-height:1.7}
   .ptags{margin-top:.4rem;gap:.3rem}
   .ptag{font-size:.62rem;padding:.22rem .55rem}
   .pprice{padding-left:0;padding-top:.5rem;font-size:1.05rem;text-align:left}
@@ -402,7 +402,7 @@ footer{background:var(--cr);border-top:1px solid var(--cr2);padding:1.75rem 0}
   <div class="si"><b>14 Abr</b><small>Inicio</small></div>
   <div class="si"><b>6 sesiones</b><small>5 online · 1 presencial</small></div>
   <div class="si"><b>Semipres.</b><small>Lo Barnechea</small></div>
-  <div class="si"><b>$180.000</b><small>Transferencia</small></div>
+  <div class="si"><b>$190.000</b><small>Transferencia</small></div>
 </div>
 
 <!-- PARA QUIÉN + QUÉ APRENDERÁS (combinados) -->
@@ -422,37 +422,7 @@ footer{background:var(--cr);border-top:1px solid var(--cr2);padding:1.75rem 0}
         <span class="pq-cta rv">Entonces este curso es para ti.</span>
         <div class="rv"><a href="#inscripcion" class="btn bd">Inscribirme</a></div>
       </div>
-      <!-- Derecha: lo que aprenderás -->
-      <div>
-        <div class="ey rv">Lo que aprenderás</div>
-        <h2 class="rv d1">El <em>contenido</em></h2>
-        <div class="learn-cards">
-          <div class="lc rv">
-            <h4>Mantención sustentable</h4>
-            <p>Suelo, riego eficiente y control de plagas con enfoque orgánico.</p>
-          </div>
-          <div class="lc rv d1">
-            <h4>Cuidados por estaciones</h4>
-            <p>Qué hacer en cada época del año. Manejo del césped anual.</p>
-          </div>
-          <div class="lc rv d2">
-            <h4>Plagas y enfermedades</h4>
-            <p>Reconocer, prevenir y tratar. Siempre con criterio ambiental.</p>
-          </div>
-          <div class="lc rv">
-            <h4>Nutrición de plantas</h4>
-            <p>Síntomas de deficiencia y cómo solucionarlos correctamente.</p>
-          </div>
-          <div class="lc rv d1">
-            <h4>Elección de especies y poda</h4>
-            <p>Plantas adecuadas para tu espacio. Cuándo y cómo podar.</p>
-          </div>
-          <div class="lc rv d2" style="border-left-color:var(--do)">
-            <h4>★ Clase práctica en terreno</h4>
-            <p>Riego real, programador y poda en jardín. Lo Barnechea.</p>
-          </div>
-        </div>
-      </div>
+
     </div>
   </div>
 </section>
@@ -535,7 +505,7 @@ footer{background:var(--cr);border-top:1px solid var(--cr2);padding:1.75rem 0}
           </div>
         </div>
         <div class="pprice" style="color:var(--dl)">
-          $180.000
+          $190.000
         </div>
       </div>
     </div>
@@ -584,7 +554,7 @@ footer{background:var(--cr);border-top:1px solid var(--cr2);padding:1.75rem 0}
           <div class="ir rv"><div class="irl">Inicio</div><div class="irv"><strong>Martes 14 de abril, 2026</strong></div></div>
           <div class="ir rv"><div class="irl">Online</div><div class="irv">Martes <strong>18:00–20:30 hrs</strong></div></div>
           <div class="ir rv"><div class="irl">Presencial</div><div class="irv">15 o 16 de mayo · <strong>Lo Barnechea</strong></div></div>
-          <div class="ir rv"><div class="irl">Valor</div><div class="irv"><strong>$180.000</strong> · Transferencia</div></div>
+          <div class="ir rv"><div class="irl">Valor</div><div class="irv"><strong>$190.000</strong> · Transferencia</div></div>
         </div>
       </div>
       <div class="rv">
@@ -598,7 +568,7 @@ footer{background:var(--cr);border-top:1px solid var(--cr2);padding:1.75rem 0}
               <label>¿Qué quieres tomar?</label>
               <select id="fc">
                 <option value="">Selecciona…</option>
-                <option value="Curso completo — $180.000 (incluye clase práctica)">Curso completo — $180.000 ✦</option>
+                <option value="Curso completo — $190.000 (incluye clase práctica)">Curso completo — $190.000 ✦</option>
                 <option value="Clase 01 · Mantención sustentable — $35.000">Clase 01 · Mantención sustentable — $35.000</option>
                 <option value="Clase 02 · Labores por estaciones — $35.000">Clase 02 · Labores por estaciones — $35.000</option>
                 <option value="Clase 03 · Plagas y enfermedades — $35.000">Clase 03 · Plagas y enfermedades — $35.000</option>
